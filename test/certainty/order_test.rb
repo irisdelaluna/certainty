@@ -11,7 +11,7 @@ module Certainty
     end
 
     def test_unknown_direction_is_argument_error
-      assert_kind_of ArgumentError, Order::UnknownDirectionError.new
+      assert_kind_of ArgumentError, Order::UnknownDirectionError.new(:bogus)
     end
 
     def test_sorted_asc
@@ -19,7 +19,7 @@ module Certainty
     end
 
     def test_sorted_desc
-      assert Order.sorted?(%i[b c a], :desc, by: :to_s)
+      assert Order.sorted?(%i[c b a], :desc, by: :to_s)
     end
 
     def test_default_sort_by_itself

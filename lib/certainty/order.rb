@@ -26,5 +26,13 @@ module Certainty
         cmp == expected_cmp
       end
     end
+
+    def assert_order(list, order, by: :itself)
+      raise NotImplementedError
+    end
+
+    def refute_order(list, order, by: :itself)
+      raise NotImplementedError
+    end
   end
 end

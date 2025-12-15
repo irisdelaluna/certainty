@@ -5,9 +5,11 @@ require "test_helper"
 module Certainty
   class OrderTest < TestCase
     def test_unknown_direction_error
-      assert_raises Order::UnknownDirectionError, "unknown ordering: bogus" do
+      error = assert_raises Order::UnknownDirectionError do
         Order.sorted? [], :bogus
       end
+
+      assert_equal error.message, "unknown direction: bogus"
     end
 
     def test_unknown_direction_is_argument_error

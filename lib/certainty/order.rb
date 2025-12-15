@@ -9,7 +9,7 @@ module Certainty
     # Indicates neither of known `DIRECTIONS`.
     class UnknownDirectionError < ArgumentError
       def initialize(order)
-        super("Unknown direction: #{order}")
+        super("unknown direction: #{order}")
       end
     end
 

@@ -14,6 +14,23 @@ module Certainty
       assert_kind_of ArgumentError, Order::UnknownDirectionError.new(:bogus)
     end
 
+    def test_not_applicable_error
+      Order::DIRECTIONS.each do |order|
+        2.times.each do |n|
+          error = assert_raises Order::NotApplicableError do
+            Order.sorted? n.times, order
+          end
+
+          expected_message = "not applicable when less than 2 elements, got: #{n}"
+          assert_equal error.message, expected_message
+        end
+      end
+    end
+
+    def test_not_applicable_is_argument_error
+      assert_kind_of ArgumentError, Order::NotApplicableError.new(0)
+    end
+
     def test_sorted_asc
       assert Order.sorted?([1, 2, 3], :asc, by: :itself)
     end

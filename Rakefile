@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 require "bundler/gem_tasks"
-require "minitest/test_task"
+require "rake/testtask"
 
-Minitest::TestTask.create do |t|
+Rake::TestTask.new do |t|
   t.libs += %w[test lib]
-  t.test_globs = %w[test/**/*_test.rb]
+  t.pattern = "test/**/*_test.rb"
 end
 
 require "rubocop/rake_task"

@@ -5,7 +5,7 @@ require_relative "lib/certainty/version"
 Gem::Specification.new do |spec|
   spec.name = "certainty"
   spec.version = Certainty::VERSION
-  spec.required_ruby_version = ">= 3.0"
+  spec.required_ruby_version = ">= 3.2"
   spec.license = "MIT"
   spec.authors = ["Irys Łuna"]
   spec.email = ["dude@irysek.pro"]

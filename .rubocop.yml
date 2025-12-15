@@ -1,5 +1,5 @@
 AllCops:
-  TargetRubyVersion: 3
+  TargetRubyVersion: 3.2
   SuggestExtensions: false
   NewCops: enable
 
@@ -10,6 +10,9 @@ Gemspec/RequireMFA:
   Enabled: false
 
 Bundler/OrderedGems:
+  Enabled: false
+
+Layout/ArgumentAlignment:
   Enabled: false
 
 Style/StringLiterals:

@@ -75,7 +75,7 @@ PLATFORMS
 DEPENDENCIES
   certainty!
   irb
-  minitest-reporters
+  minitest-reporters (~> 1.7)
   rake (~> 13.0)
   rubocop (~> 1.21)
 

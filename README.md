@@ -24,14 +24,14 @@ gem install certainty
 
 ## Usage
 
-Require `cerainty` in the `test/test_helper.rb`, then in your test case include selected assertions:
+Require `certainty` in `test/test_helper.rb`, then in your test case include selected assertions:
 
 ```ruby
-class MyTest < Minitest::TestCase
+class MyTest < Minitest::Test
   include Certainty::Order
 
   def test_list_ordering
-    assert_order [ 1, 2, 3 ], :desc
+    assert_order [ 1, 2, 3 ], :asc
   end
 end
 ```

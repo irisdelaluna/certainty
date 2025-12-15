@@ -16,3 +16,13 @@ Minitest::Reporters.use! [Minitest::Reporters::SpecReporter.new(color: true)]
 
 class TestCase < Minitest::Test
 end
+
+if ENV["BENCH"]
+  require "minitest/benchmark"
+
+  class PerformanceTest < Minitest::Benchmark
+  end
+else
+  class PerformanceTest
+  end
+end

@@ -43,8 +43,7 @@ module Certainty
     #
     # Basically, is this `list` sorted `by` attribute in `order`?
     def assert_order(list, order, by: :itself)
-      assert Order.sorted?(list, order, by:),
-        "Expected #{list.inspect} to be in #{order}ending order by `#{by}'."
+      check_order :assert, list, order, by:
     end
 
     # Assert any other but such sort `order` of the given `list`
@@ -52,8 +51,16 @@ module Certainty
     #
     # Basically, is this `list` mixed up or sorted reverse to `order`?
     def refute_order(list, order, by: :itself)
-      refute Order.sorted?(list, order, by:),
-        "Expected #{list.inspect} not to be in #{order}ending order by `#{by}'."
+      check_order :refute, list, order, by:
+    end
+
+    private
+
+    def check_order(method, list, order, by: :itself)
+      negation = method == :assert ? "" : " not"
+
+      public_send method, Order.sorted?(list, order, by:),
+        "Expected #{list.inspect}#{negation} to be in #{order}ending order by `#{by}'."
     end
   end
 end

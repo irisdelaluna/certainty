@@ -27,7 +27,7 @@ jobs:
           bundler-cache: true
       - name: Lint
         run: bundle exec rake lint
-      - name: Test and Benchmark
+      - name: Test
         env:
-          BENCH: "1"
+          BENCH: ${{ github.ref == 'refs/heads/main' && '1' || '' }}
         run: bundle exec rake test

@@ -9,7 +9,7 @@ module Certainty
         Order.sorted? [], :bogus
       end
 
-      assert_equal error.message, "unknown direction: bogus"
+      assert_equal "unknown direction: bogus", error.message
     end
 
     def test_unknown_direction_is_argument_error
@@ -24,7 +24,7 @@ module Certainty
           end
 
           expected_message = "not applicable when less than 2 elements, got: #{n}"
-          assert_equal error.message, expected_message
+          assert_equal expected_message, error.message
         end
       end
     end

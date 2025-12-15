@@ -23,6 +23,6 @@ if ENV["BENCH"]
   class PerformanceTest < Minitest::Benchmark
   end
 else
-  class PerformanceTest
+  class PerformanceTest # rubocop:disable Lint/EmptyClass
   end
 end

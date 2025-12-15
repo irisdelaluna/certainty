@@ -5,13 +5,32 @@ require "test_helper"
 module Certainty
   class OrderTest < TestCase
     def test_unknown_direction_error
-      assert_raises Order::UnknownDirectionError, "unknown ordering: bogus" do
+      error = assert_raises Order::UnknownDirectionError do
         Order.sorted? [], :bogus
       end
+
+      assert_equal "unknown direction: bogus", error.message
     end
 
     def test_unknown_direction_is_argument_error
       assert_kind_of ArgumentError, Order::UnknownDirectionError.new(:bogus)
+    end
+
+    def test_not_applicable_error
+      Order::DIRECTIONS.each do |order|
+        2.times.each do |n|
+          error = assert_raises Order::NotApplicableError do
+            Order.sorted? n.times, order
+          end
+
+          expected_message = "not applicable when less than 2 elements, got: #{n}"
+          assert_equal expected_message, error.message
+        end
+      end
+    end
+
+    def test_not_applicable_is_argument_error
+      assert_kind_of ArgumentError, Order::NotApplicableError.new(0)
     end
 
     def test_sorted_asc

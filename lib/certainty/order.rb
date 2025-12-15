@@ -9,20 +9,32 @@ module Certainty
     # Indicates neither of known `DIRECTIONS`.
     class UnknownDirectionError < ArgumentError
       def initialize(order)
-        super("Unknown direction: #{order}")
+        super("unknown direction: #{order}")
+      end
+    end
+
+    # Raised when list is empty or has just one element.
+    # Such lists have no verifiable order.
+    class NotApplicableError < ArgumentError
+      def initialize(size)
+        super("not applicable when less than 2 elements, got: #{size}")
       end
     end
 
     # Check whether given `list` is in the specified `order`,
     # and if sorted `by` given attribute.
+    #
+    # Applicable only to lists of more than one element.
     def self.sorted?(list, order, by: :itself)
       raise UnknownDirectionError, order unless DIRECTIONS.include?(order)
+      raise NotApplicableError, list.size if list.size < 2
 
       expected_cmp = order == :desc ? 1 : -1
 
       list.each_cons(2).all? do |x, y|
         a, b = [x, y].map { _1.public_send by.to_sym }
-        cmp = a <=> b and cmp.zero? || cmp == expected_cmp
+        cmp = a <=> b
+        cmp.zero? || cmp == expected_cmp
       end
     end
 

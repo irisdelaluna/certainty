@@ -27,12 +27,22 @@ module Certainty
       end
     end
 
+    # Assert sort `order` of the given `list` achieved `by` comparison
+    # of that specific attribute.
+    #
+    # Basically, is this `list` sorted `by` attribute in `order`?
     def assert_order(list, order, by: :itself)
-      raise NotImplementedError
+      assert Order.sorted?(list, order, by:),
+        "Expected #{list.inspect} to be in #{order}ending order by `#{by}'."
     end
 
+    # Assert any other but such sort `order` of the given `list`
+    # achieved `by` comparison of that specific attribute.
+    #
+    # Basically, is this `list` mixed up or sorted reverse to `order`?
     def refute_order(list, order, by: :itself)
-      raise NotImplementedError
+      refute Order.sorted?(list, order, by:),
+        "Expected #{list.inspect} not to be in #{order}ending order by `#{by}'."
     end
   end
 end

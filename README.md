@@ -24,7 +24,19 @@ gem install certainty
 
 ## Usage
 
-TODO: Write instructions and examples
+Require `certainty` in `test/test_helper.rb`, then in your test case include selected assertions:
+
+```ruby
+class MyTest < Minitest::Test
+  include Certainty::Order
+
+  def test_list_ordering
+    assert_order [ 1, 2, 3 ], :asc
+  end
+end
+```
+
+The modules containing assertions will be auto-loaded, so there is no need to `require` those explicitly.
 
 ## Development
 

@@ -25,5 +25,9 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-      - name: Run the default task
-        run: bundle exec rake
+      - name: Lint
+        run: bundle exec rake lint
+      - name: Test
+        env:
+          BENCH: ${{ github.ref == 'refs/heads/main' && '1' || '' }}
+        run: bundle exec rake test

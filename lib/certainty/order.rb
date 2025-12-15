@@ -33,7 +33,8 @@ module Certainty
 
       list.each_cons(2).all? do |x, y|
         a, b = [x, y].map { _1.public_send by.to_sym }
-        cmp = a <=> b and cmp.zero? || cmp == expected_cmp
+        cmp = a <=> b
+        cmp.zero? || cmp == expected_cmp
       end
     end
 

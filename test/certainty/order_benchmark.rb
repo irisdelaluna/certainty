@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require "config"
 
 module Certainty
-  class OrderSpeedTest < PerformanceTest
+  class OrderBenchmark < Benchmark
     def self.bench_range
       bench_linear(2, 7_000, 1_000)
     end
@@ -22,7 +22,7 @@ module Certainty
       samples = make_samples.each(&:sort!)
 
       # Linear due to looping over the entire list when sorted.
-      assert_performance_linear 0.7 do
+      assert_performance_linear 0.5 do
         Order.sorted?(samples.shift, :asc)
       end
     end

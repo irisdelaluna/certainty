@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gemspec
+gemspec require: false
 
 gem "irb"
 gem "rake", "~> 13.0"

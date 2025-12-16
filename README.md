@@ -96,6 +96,7 @@ Auto-fix correctable lint offenses:
 ```sh
 bundle exec rake fix
 bundle exec rake fix:all
+```
 
 To install this gem onto your local machine:
 

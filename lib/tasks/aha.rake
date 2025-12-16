@@ -2,7 +2,7 @@
 
 file "test/config.rb" do |file|
   mkdir_p "test"
-  source = File.expand_path("../test/config.rb", __dir__)
+  source = File.expand_path("../test/config.rb.sample", __dir__)
   cp source, file.name
 end
 

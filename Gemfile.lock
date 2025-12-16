@@ -3,6 +3,7 @@ PATH
   specs:
     certainty (0.1.0)
       minitest (>= 5.0)
+      minitest-reporters (>= 1.7)
 
 GEM
   remote: https://rubygems.org/
@@ -82,7 +83,6 @@ PLATFORMS
 DEPENDENCIES
   certainty!
   irb
-  minitest-reporters (~> 1.7)
   rake (~> 13.0)
   rubocop (~> 1.21)
   simplecov (~> 0.13)

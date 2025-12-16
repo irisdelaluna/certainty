@@ -4,10 +4,6 @@ Ubiquitous unit testing facilities to eliminate doubt.
 
 This hand-crafted collection of assertions and test helpers makes it trivial to prove common functionalities with utmost certainty.
 
-## Dependencies
-
-Works with [Minitest](https://github.com/minitest/minitest) version 5.0 and older.
-
 ## Installation
 
 Add to your `Gemfile` with [Bundler](https://bundler.io):

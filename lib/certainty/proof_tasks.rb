@@ -13,6 +13,3 @@ TEST_ASPECTS = %i[
 # NOTE: Install rake library from `certainty/tasks`.
 
 Rake.add_rakelib File.realpath(File.join(File.dirname(__FILE__), "../tasks"))
-
-desc "Fix offenses"
-task fix: ["lint:autocorrect"]

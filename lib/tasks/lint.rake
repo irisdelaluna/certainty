@@ -7,6 +7,9 @@ rescue LoadError
 else
   RuboCop::RakeTask.new :lint
 
+  desc "Fix correctable offenses"
   task fix: "lint:autocorrect"
+
+  desc "Fix all offenses"
   task "fix:all": "lint:autocorrect_all"
 end

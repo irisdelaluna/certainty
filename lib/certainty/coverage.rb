@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Test coverage configuration (for `SimpleCov.start`).
 # Can be defined in `test/config.rb` before requiring `certainty` lib.
 COVERAGE = lambda do |*|

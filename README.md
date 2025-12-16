@@ -31,7 +31,7 @@ Remove `test/test_helper.rb` if exists...
 To your `Rakefile` add:
 
 ```ruby
-require "certainty/proof_tasks.rb"
+require "certainty/proof_tasks"
 ```
 
 Setup with:

@@ -85,7 +85,7 @@ bin/console
 To test, lint, and benchmark:
 
 ```sh
-bundle exec rake test loads test/**/*_test.rb
+bundle exec rake test # loads test/**/*_test.rb
 bundle exec rake benchmark # loads test/**/*_benchmark.rb
 bundle exec rake lint # verifies standards
 bundle exec rake # all but benchmarks

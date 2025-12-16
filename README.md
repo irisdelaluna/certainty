@@ -4,10 +4,6 @@ Ubiquitous unit testing facilities to eliminate doubt.
 
 This hand-crafted collection of assertions and test helpers makes it trivial to prove common functionalities with utmost certainty.
 
-## Dependencies
-
-Works with [Minitest](https://github.com/minitest/minitest) version 5.0 and older.
-
 ## Installation
 
 Add to your `Gemfile` with [Bundler](https://bundler.io):
@@ -24,10 +20,28 @@ gem install certainty
 
 ## Usage
 
-Require `certainty` in `test/test_helper.rb`, then in your test case include selected assertions:
+**Let's break some rules!**
+
+Remove `test/test_helper.rb` if exists...
+
+To your `Rakefile` add:
 
 ```ruby
-class MyTest < Minitest::Test
+require "certainty/proof_tasks"
+```
+
+Setup with:
+
+```sh
+bundle exec rake aha
+```
+
+Now there exists `test/config.rb`, and your tests may look like this:
+
+```ruby
+require "config"
+
+class MyTest < Test
   include Certainty::Order
 
   def test_list_ordering
@@ -36,7 +50,19 @@ class MyTest < Minitest::Test
 end
 ```
 
-The modules containing assertions will be auto-loaded, so there is no need to `require` those explicitly.
+Assertion modules (like `Certainty::Order`) are auto-loaded, so there is no need to `require`.
+
+Top-level `Test`, `Benchmark`, and `Reporters` are aliases for those from `Minitest`.
+
+Default report setting is:
+
+```rb
+Reporters.use! [SpecReporter.new(color: true)]
+```
+
+### Assertions
+
+TODO: Document available assertions.
 
 ## Development
 
@@ -52,10 +78,20 @@ The interactive prompt will allow you to experiment:
 bin/console
 ```
 
-To test and lint, use:
+To test, lint, and benchmark:
 
 ```sh
-bundle exec rake
+bundle exec rake test # loads test/**/*_test.rb
+bundle exec rake benchmark # loads test/**/*_benchmark.rb
+bundle exec rake lint # verifies standards
+bundle exec rake # all but benchmarks
+```
+
+Auto-fix correctable lint offenses:
+
+```sh
+bundle exec rake fix
+bundle exec rake fix:all
 ```
 
 To install this gem onto your local machine:
@@ -64,7 +100,7 @@ To install this gem onto your local machine:
 bundle exec rake install
 ```
 
-## Shipment
+### Shipment
 
 **Before the release** of a new version, update the version number in `version.rb`. 
 

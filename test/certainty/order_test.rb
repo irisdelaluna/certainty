@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require "config"
 
 module Certainty
-  class OrderTest < TestCase
+  class OrderTest < Test
     def test_unknown_direction_error
       error = assert_raises Order::UnknownDirectionError do
         Order.sorted? [], :bogus

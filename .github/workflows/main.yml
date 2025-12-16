@@ -28,6 +28,7 @@ jobs:
       - name: Lint
         run: bundle exec rake lint
       - name: Test
-        env:
-          BENCH: ${{ (github.ref == 'refs/heads/main' || contains(github.ref, 'benchmark')) && '1' || '' }}
         run: bundle exec rake test
+      - name: Benchmark
+        if: ${{ (github.ref == 'refs/heads/main' || contains(github.ref, 'benchmark')) && '1' || '' }}
+        run: bundle exec rake benchmark

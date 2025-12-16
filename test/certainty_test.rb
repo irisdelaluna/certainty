@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require "test_helper"
+require "config"
 
-class CertaintyTest < TestCase
-  def test_that_it_has_a_version_number
+class CertaintyTest < Test
+  def test_version_presence
     refute_nil ::Certainty::VERSION
   end
 end

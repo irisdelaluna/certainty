@@ -37,7 +37,7 @@ require "certainty/proof_tasks.rb"
 Setup with:
 
 ```sh
-bundle exec rake sure
+bundle exec rake aha
 ```
 
 Now there exists `test/config.rb`, and your tests may look like this:
@@ -87,8 +87,8 @@ To test, lint, and benchmark:
 ```sh
 bundle exec rake test loads test/**/*_test.rb
 bundle exec rake benchmark # loads test/**/*_benchmark.rb
-bundle exec rake lint # Calls the RuboCop
-bundle exec rake # all of the above
+bundle exec rake lint # verifies standards
+bundle exec rake # all but benchmarks
 ```
 
 Auto-fix correctable lint offenses:

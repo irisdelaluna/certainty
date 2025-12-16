@@ -54,7 +54,7 @@ class MyTest < Test
 end
 ```
 
-Assertion modules (like `Certainty::Order` are auto-loaded, so there is no need to `require`.
+Assertion modules (like `Certainty::Order`) are auto-loaded, so there is no need to `require`.
 
 Top-level `Test`, `Benchmark`, and `Reporters` are aliases for those from `Minitest`.
 

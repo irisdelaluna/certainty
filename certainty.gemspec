@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
     "source_code_uri" => "https://github/irisdelaluna/certainty"
   )
 
-  globs = %w[lib/**/*.rb *.gemspec **/*.md Rakefile LICENSE*]
+  globs = %w[lib/**/*.r{b,ake} *.gemspec **/*.md Rakefile LICENSE*]
   spec.files = globs.flat_map(&Dir.method(:glob))
   spec.require_paths = ["lib"]
 
